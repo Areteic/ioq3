@@ -554,7 +554,7 @@ static int CG_CalcFov( void ) {
 	if ( !cg.zoomed ) {
 		cg.zoomSensitivity = 1;
 	} else {
-		cg.zoomSensitivity = tan( cg.refdef.fov_x * M_PI / 180 / 2) / tan( cg_fov.value * M_PI / 180 / 2);;
+		cg.zoomSensitivity = tan( cg.refdef.fov_x * M_PI / 180 / 2) / tan( cg_fov.value * M_PI / 180 / 2);
 	}
 
 	return inwater;
