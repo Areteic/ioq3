@@ -1,0 +1,24 @@
+name: Build mingw32x86_64
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: sudo apt-get install mingw-w64
+    - name: make
+      run: make
+      env:
+        PLATFORM: mingw32
+        ARCH: x86_64
+    - uses: actions/upload-artifact@v2
+      with:
+       name: release-mingw32-x86_64.zip
+       path: /home/runner/work/ioq3/ioq3/build/
