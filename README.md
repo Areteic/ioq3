@@ -580,4 +580,70 @@ Significant contributions from
   * optical <alex@rigbo.se>
   * Aaron Gyes <floam@aaron.gy>
 
+-----------------------------------------------  
+Building ioquake3 on Windows - msys2
 
+Return to Building ioquake3
+Windows - msys2
+
+How to compile ioquake3 using MinGW in a MSYS2 environment.
+
+
+64-Bit Binaries
+
+To build 64-bit binaries, follow these instructions:
+
+1. Install msys2 from https://msys2.github.io/ , following the instructions there.
+
+    It doesn't matter which version you download, just get one appropriate for your OS.
+
+2. Start "MSYS2 MinGW 64-bit" from the Start Menu.
+
+3. Install mingw-w64-x86_64:
+
+pacman -S mingw-w64-x86_64-gcc
+
+4. Install make:
+
+pacman -S make
+
+5. Grab latest ioq3 source code from github. Use git, or just grab https://github.com/ioquake/ioq3/archive/master.zip and unzip it somewhere.
+
+6. Change directory to where you put the source and run make:
+
+    Note that in msys2, your drives are linked as folders in the root directory: C:\ is /c/, D:\ is /d/, and so on.
+
+cd /c/ioq3
+make ARCH=x86_64
+
+7. Find the executables and dlls in build/release-mingw64-x86_64 .
+
+
+32-Bit Binaries
+
+To build 32-bit binaries, follow these instructions:
+
+1. Install msys2 from https://msys2.github.io/ , following the instructions there.
+
+    It doesn't matter which version you download, just get one appropriate for your OS.
+
+2. Start "MSYS2 MinGW 32-bit" from the Start Menu.
+
+3. Install mingw-w64-i686-gcc:
+
+pacman -S mingw-w64-i686-gcc
+
+4. Install make from msys:
+
+pacman -S make
+
+5. Grab latest ioq3 source code from github Use git, or just grab https://github.com/ioquake/ioq3/archive/master.zip and unzip it somewhere.
+
+6. Change directory to where you put the source and run make:
+
+    Note that in msys2, your drives are linked as folders in the root directory: C:\ is /c/, D:\ is /d/, and so on.
+
+cd /c/ioq3
+make ARCH=x86 WINDRES="windres -F pe-i386"
+
+7. Find the executables and dlls in build/release-mingw32-x86 . 
